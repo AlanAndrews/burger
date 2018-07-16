@@ -5,10 +5,12 @@
 <div>
   {{#each burgers}}
     {{#unless this.devoured}}
+    <form action="/update/{{this.id}}/{{this.devoured}}" method="POST">
     <button type="submit">
       {{ this.id}}
       {{this.burger_name}}
       </button>
+    </form>
     {{/unless}}
   {{/each}}
 </div>

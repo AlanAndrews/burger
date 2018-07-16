@@ -21,14 +21,18 @@ router.get("/", function(req, res) {
     });
   });
   
-  router.put("/:id", function(req, res) {
+  router.post("/update/:id/:devoured", function(req, res) {
     var condition = "id = " + req.params.id;
-  
-    console.log("devoured", condition);
+    var devoured = req.body.devoured;
+    // var burgTable = {name: "burgers"};
+
+
+    console.log("devoured", condition, devoured);
   
     burger.updateOne(
+        // burgTable,
       {
-        devoured: req.body.devoured
+        devoured: 1
       },
       condition,
       function(result) {
@@ -36,7 +40,8 @@ router.get("/", function(req, res) {
           // If no rows were changed, then the ID must not exist, so 404
           return res.status(404).end();
         }
-        res.status(200).end();
+        // res.status(200).end();
+        res.redirect("/");
   
       }
     );

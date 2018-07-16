@@ -1,5 +1,5 @@
 var connection = require("../config/connection.js");
-
+var table = "burgers";
 
 function printQuestionMarks(num) {
     var arr = [];
@@ -65,6 +65,8 @@ function printQuestionMarks(num) {
       });
     },
  
+    
+
     updateOne: function(table, objColVals, condition, cb) {
       var queryString = "UPDATE " + table;
   
